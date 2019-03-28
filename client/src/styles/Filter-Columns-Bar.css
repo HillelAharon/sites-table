@@ -1,0 +1,11 @@
+#filter-container{
+  display: none;
+  justify-content: space-around;
+  border: 2px solid rgb(168, 168, 172);
+  background-color: rgb(214, 209, 209);
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.filter-item{
+  flex-grow: 1;
+}

@@ -1,0 +1,17 @@
+.swal-modal {
+  background-color:  rgb(184, 184, 189);
+  border: 3px solid rgb(231, 219, 219);
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  max-height: 70%;
+  max-width: 60%;
+  overflow: auto;
+}
+
+.swal-button--confirm{
+  background-color: rgb(143, 140, 196);
+}
+
+.swal-button--confirm.swal-button--danger{
+  background-color: rgb(196, 116, 126);
+  size: 150%;
+} 

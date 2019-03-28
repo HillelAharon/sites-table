@@ -1,0 +1,29 @@
+#cityId-input-container {
+  display: none;
+  border: 2px solid rgb(168, 168, 172);
+  background-color: rgb(214, 209, 209);
+}
+
+#cityId-label {
+  border-right: 2px solid rgb(168, 168, 172);
+  font-size: larger;        
+  padding-right: 20px;
+  padding-left: 6px;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  color: rgb(71, 71, 71);
+}
+#cityId-input {
+  font-size: larger;     
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  color: rgb(71, 71, 71);
+  flex-grow: 6;
+}
+#submit-cityId {
+  flex-grow: 1;
+  font-size: larger;  
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  color: rgb(71, 71, 71);
+}
+textarea{
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}

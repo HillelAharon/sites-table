@@ -1,0 +1,17 @@
+#console-container {
+  display: flex;
+  border: 2px solid rgb(168, 168, 172);
+  background-color: rgb(214, 209, 209);
+}
+#console{
+  font-size: larger;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+#console-label {
+  border-right: 2px solid rgb(168, 168, 172);
+  font-size: larger;        
+  padding-right: 6px;
+  padding-left: 6px;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  color: rgb(71, 71, 71);
+}
