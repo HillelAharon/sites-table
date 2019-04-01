@@ -1,7 +1,8 @@
-module.exports = [`
+module.exports = [
+  `
   type Query {
-    site(_id: String!): Site!
-    sites(cityId: String!): [Site!]!
+    sitesBySiteId(_id: [String!]!): [Site!]!
+    sitesByCityId(cityId: String!): [Site!]!
   }
 
   type Site {
@@ -13,6 +14,7 @@ module.exports = [`
     serialNumber: String
     phone: String
     qrCode: String
-  }`];
+  }`
+];
 
-  //sites(cityId: String!): [Site]
+//sites(cityId: String!): [Site]
