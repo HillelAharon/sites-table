@@ -6,7 +6,11 @@ cityid:
 ewg7uSzQRkkbofNiN
 TmG3yf3xADkr3cG9o
 
-test queries:
+{
+  "sId": "27LGp6H8EfZBdp8yw",
+  "sName": "pipi"
+}
+//---------------------------------test queries
 query{
   site(_id: "27PxiNPjJtLw6W2DJ") {
     name
@@ -24,36 +28,162 @@ query{
   }
 }
 
-{
-  "name": "client",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@handsontable/react": "^3.0.0",
-    "apollo-boost": "^0.3.1",
-    "core-js": "^3.0.0",
-    "graphql": "^14.2.0",
-    "handsontable": "^7.0.0",
-    "react": "^16.8.6",
-    "react-apollo": "^2.5.3",
-    "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8",
-    "regenerator-runtime": "^0.13.2",
-    "sweetalert": "^2.1.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+query sites($city_id: String!) {
+  sitesByCityId(cityId: $city_id) {
+    _id
+    name
+    address
+  }
 }
+
+//----------------------------withData example
+const GET_CATEGORIES = gql`
+  query ijjjjjjjjallCategories($customerId: String) {
+    customer(customerId: $customerId) {
+      _id
+      allCategories{
+        _id
+        name
+      }
+    }
+  }
+`;
+
+const withData = graphql(GET_CATEGORIES, {
+  options: props => {
+    return {
+      variables: {
+        customerId: props.customerId,
+      }
+    };
+  }
+});
+
+
+//--------------------possible html shit
+
+<!-- <link
+href="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.css"
+rel="stylesheet"
+/> -->
+<link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" /> -->
+<!-- <script type="module" src="App.jsx"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/handsontable-pro@6.2.2/dist/handsontable.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@handsontable/react/dist/react-handsontable.min.js"></script> -->
+<!-- <link
+      href="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"
+      async
+    ></script> -->
+<!-- <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" /> -->
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.js"></script> -->
+<!-- <div id = "base-container">        
+ <div id="button-container">
+        <button id="update-button" class="button">update</button>
+        <button id="delete-button" class="button">delete</button>
+        <button id="load-cityId-button" class="button">load by city id</button>
+        <button id="load-id-button" class="button">load by site id</button>
+        <button id="filter-columns-button" class="button">show filters</button>
+        <button id="clear-button" class="button">clear</button>
+        <button id="download-csv-button" class="button">download csv</button>
+      </div>
+      <div id="filter-container" class="hidden">
+        <div id="columns">
+          <label
+            ><input type="checkbox" name="name" value="1" checked />name</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              name="address"
+              value="2"
+              checked
+            />address</label
+          >
+          <label
+            ><input type="checkbox" name="types" value="3" checked />type</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              name="serial-number"
+              value="4"
+              checked
+            />serial number</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              name="phone"
+              value="5"
+              checked
+            />phone</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              name="qrCode"
+              value="6"
+              checked
+            />qrCode</label
+          >
+        </div>
+      </div>
+      <div id="cityId-input-container" class="hidden">
+        <div id="cityId-label">city id</div>
+        <input type="text" id="cityId-input" />
+        <button id="submit-cityId">submit</button>
+      </div>
+      <div id="console-container">
+        <div id="console-label">console</div>
+        <div id="console"></div>
+      </div>
+
+      
+//-----------------------------------working query to server
+const testQuery = gql`
+  query {
+    sitesByCityId(cityId: "ewg7uSzQRkkbofNiN") {
+      _id
+      name
+      address
+    }
+  }
+`;
+ <div>
+        <Query query={testQuery}>
+          {({ loading, error, data }) => {
+            if (loading) return "Loading...";
+            if (error) return `Error! ${error.message}`;
+
+            return (
+              <select name="site">
+                {data.sitesByCityId.map(site => (
+                  <option key={site._id} value={site.name}>
+                    {site.name}
+                  </option>
+                ))}
+              </select>
+            );
+          }}
+        </Query>
+      </div>
+
+
+      //---icon?
+
+      "icons": [
+  //   {
+  //     "src": "favicon.ico",
+  //     "sizes": "64x64 32x32 24x24 16x16",
+  //     "type": "image/x-icon"
+  //   }
+  // ],

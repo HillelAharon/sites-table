@@ -1,35 +1,37 @@
 import React from "react";
-//import ReactDOM from 'react-dom';
-import { HotTable } from "@handsontable/react";
-import Handsontable from "handsontable";
+// import ReactDOM from "react-dom";
+import HotTableWrapper from "./HotTableWrapper";
+import "../styles/App.css";
 
 export default class SitesTable extends React.Component {
   constructor(props) {
     super(props);
-    this.id = "hot";
-    this.hotSettings = {
-      data: Handsontable.helper.createSpreadsheetData(4, 4),
-      colHeaders: true
+    this.state = {
+      lastUpdatedData: [],
+      onChangeAttrArr: [],
+      sitesIdsToLoad: ["27PxiNPjJtLw6W2DJ", "27LGp6H8EfZBdp8yw"],
+      hotRef: null
     };
-    this.hotTableComponent = React.createRef();
-  }
-
-  swapHotData() {
-    // The Handsontable instance is stored under the `hotInstance` property of the wrapper component.
-    this.hotTableComponent.current.hotInstance.loadData([["new", "data"]]);
   }
 
   render() {
     return (
       <div>
-        <HotTable
-          ref={this.hotTableComponent}
-          id={this.id}
-          settings={this.hotSettings}
+        <HotTableWrapper
+          client={this.props.client}
+          newSitesIdsToLoad={this.state.sitesIdsToLoad}
+          lastUpdatedData={this.state.lastUpdatedData}
+          handleLoadSiteIdClick={this.loadNewSitesIds}
         />
-        <br />
-        <button onClick={this.swapHotData.bind(this)}>Load new data!</button>
       </div>
     );
   }
+
+  loadNewSitesIds = sitesIds => {
+    this.setState({ sitesIdsToLoad: sitesIds });
+  };
+
+  updateDataBeforeLoading = tabeleData => {
+    this.setState({ lastUpdatedData: tabeleData });
+  };
 }

@@ -5,14 +5,13 @@
   "dependencies": {
     "@handsontable/react": "^3.0.0",
     "apollo-boost": "^0.3.1",
-    "core-js": "^3.0.0",
+    "core-js": "^2.6.4",
     "graphql": "^14.2.0",
     "handsontable": "^7.0.0",
     "react": "^16.8.6",
     "react-apollo": "^2.5.3",
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8",
-    "regenerator-runtime": "^0.13.2",
     "sweetalert": "^2.1.2"
   },
   "scripts": {
